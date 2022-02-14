@@ -26,7 +26,11 @@ COPY --from=builder  /lib64/libgmp.so.10 /lib64/
 COPY --from=builder  /lib64/libpthread.so.0 /lib64/
 COPY --from=builder  /lib64/libffi.so.6 /lib64/
 
-COPY --from=builder /bih/sh /bin/
+COPY  ./sh /bin/
 
 COPY ./getfav.sh /opt/test/
+
+ENTRYPOINT bash
+
+CMD ./opt/test/getfav.sh https://ya.ru
  
